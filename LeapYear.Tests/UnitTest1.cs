@@ -28,5 +28,41 @@ namespace LeapYear.Tests
             Assert.True(Program.IsLeapYear(1600));
             Assert.False(Program.IsLeapYear(1800));
         }
+
+                [Fact]
+        public void TestUserArgument()
+        {
+            Assert.Throws<ArgumentException>(() => Program.IsLeapYear(100));
+            Assert.Throws<ArgumentException>(() => Program.IsLeapYear(0));
+            Assert.Throws<ArgumentException>(() => Program.IsLeapYear(-400));
+        }
+
+        [Fact]
+        public void TestMainPrintsYay()
+        {
+            var writer = new StringWriter();
+            Console.SetOut(writer);
+
+            var stdIn = new StringReader("2000\r\n");
+            Console.SetIn(stdIn);
+            Program.Main(new string[0]);
+            var output = writer.GetStringBuilder().ToString().Trim();
+    
+            Assert.Equal("Type in a year\nyay", output);
+        }
+
+        [Fact]
+        public void TestMainPrintsNay()
+        {
+            var writer = new StringWriter();
+            Console.SetOut(writer);
+
+            var stdIn = new StringReader("1999\r\n");
+            Console.SetIn(stdIn);
+            Program.Main(new string[0]);
+            var output = writer.GetStringBuilder().ToString().Trim();
+    
+            Assert.Equal("Type in a year\nnay", output);
+        }
     }
 }
