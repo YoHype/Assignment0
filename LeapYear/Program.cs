@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ﻿using System;
 
 namespace LeapYear
@@ -51,22 +50,3 @@ namespace LeapYear
 
     }
 }
-=======
-﻿using System;
-
-namespace LeapYear
-{
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            
-        }
-
-        public static bool IsLeapYear(int year)
-        {
-            return false;
-        }
-    }
-}
->>>>>>> 3126186de4e5c0ef6af60d11672f8ceffccd9db5
